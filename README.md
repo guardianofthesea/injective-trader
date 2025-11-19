@@ -1,6 +1,6 @@
 # Injective Trader SDK
 
-Injective Trader is a high-performance, enterprise-grade framework for developing and deploying algorithmic trading strategies on Injective Protocol. It provides a comprehensive infrastructure that handles everything from real-time market data streaming to order execution, allowing developers to focus purely on trading logic.
+Injective Trader is a high-performance, enterprise-grade framework for developing and deploying algorithmic trading strategies on Injective Protocol. It provides a comprehensive infrastructure that handles everything from real-time market data streaming to order execution, allowing developers to focus purely on trading logic. For a complete walkthrough of architecture, setup, and advanced guides, read the official [Injective Trader documentation](https://docs.injective.network/developers-defi/injective-trader).
 
 ## Features
 
@@ -32,7 +32,7 @@ pip install git+https://github.com/InjectiveLabs/injective-trader.git
 pip install git+https://github.com/InjectiveLabs/injective-trader.git@branch_name
 ```
 
-⚠️ **Note**: This SDK requires `injective-py` version 1.9.0 or higher. If you encounter compatibility issues, please update your injective-py installation following the [official instructions](https://github.com/InjectiveLabs/sdk-python).
+⚠️ **Note**: This SDK requires `injective-py` version 1.9.0. If you encounter compatibility issues, please update your injective-py installation following the [official instructions](https://github.com/InjectiveLabs/sdk-python).
 
 ## Quick Start
 
@@ -495,7 +495,7 @@ This project has an **Alpha release available** with **Beta currently in develop
 ## Support
 
 For questions and support:
-- Review the documentation and examples
+- Review the [official Injective Trader documentation](https://docs.injective.network/developers-defi/injective-trader) and examples
 - Check existing issues in the repository
 - Follow best practices for strategy development
 
