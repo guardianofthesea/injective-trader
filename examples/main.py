@@ -21,9 +21,14 @@ async def main(name: str, config_path: str, log_path: str, debug: bool = False, 
     client = TraderClient(
         config_path=config_path,
         network=network,
-        log_path=log_path,
         debug=debug,
     )
+
+    # Setup logging handlers manually
+    if log_path:
+        from injective_trader.utils.logger import create_file_handler
+        file_handler = create_file_handler(log_file=log_path, level="DEBUG")
+        client.add_log_handler(file_handler)
 
     # Add any custom components here [Optional]
     # Example:
