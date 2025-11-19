@@ -8,7 +8,7 @@ from injective_trader import TraderClient
 try:
     from SimpleStrategy import SimpleStrategy
 except ImportError:
-    MMStrategy = None
+    SimpleStrategy = None
 
 async def main(name: str, config_path: str, log_path: str, debug: bool = False, network: str = "mainnet"):
     """
@@ -34,8 +34,8 @@ async def main(name: str, config_path: str, log_path: str, debug: bool = False, 
     ###########################
     ### Add Strategies Here ###
     ###########################
-    if MMStrategy is None:
-        print("MMStrategy class not found. Ensure it is defined.")
+    if SimpleStrategy is None:
+        print("SimpleStrategy class not found. Ensure it is defined.")
         sys.exit(1)
 
     # Add and initialize the custom strategy here [Required]

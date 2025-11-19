@@ -1,7 +1,7 @@
 from decimal import Decimal
 from typing import Dict, Optional
 
-from injective_trader.core.strategy import Strategy, StrategyResult
+from injective_trader.strategy.strategy import Strategy, StrategyResult
 from injective_trader.domain.market.market import Market
 from injective_trader.domain.account.order import Order
 from injective_trader.domain.account.account import Account
