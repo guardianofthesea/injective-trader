@@ -1,0 +1,67 @@
+Exchange: Helix
+ConsoleLevel: INFO
+FileLevel: DEBUG
+
+Components:
+  Initializer:
+    BotName: "MyBot"
+    Network: mainnet
+    MarketTickers:
+      - INJ/USDT PERP
+  ChainListener:
+    ReconnectionDelay: 5
+    LargeGapThreshold: 50
+  MessageBroadcaster:
+    ErrorCodesJson: config/error_codes.json
+    GranteePool:
+      MaxPendingTxs: 5000
+      ErrorThreshold: 100
+      BlockDuration: 5
+      RotationInterval: 0.6
+      SequenceSyncInterval: 30
+    RefreshInterval: 300
+    Batch:
+      MaxBatchSize: 15
+      MinBatchSize: 3
+      MaxGasLimit: 5000000
+      MaxBatchDelay: 0.5
+    # ValkeyListener: # Optional if using Valkey for external comunication
+    #   ValkeyUrl: "custom_valkey_url"
+    #   ValkeyChannels:
+    #     - "channel_name"
+
+Strategies:
+  SimpleStrategy:
+    Name: "SimpleStrategy"
+    Class: "SimpleStrategy"
+    MarketIds:
+      - "0x9b9980167ecc3645ff1a5517886652d94a0825e54a77d2057cbbe3ebee015963" # INJ/USDT PERP
+    AccountAddresses:
+      - "inj1youractualaccount..."  # Replace with actual account address
+    TradingAccount: "inj1youractualaccount..."  # Replace with actual account address
+    Parameters:
+      OrderSize: 0.1
+      MaxPosition: 1.0
+      SpreadThreshold: 0.005
+
+RetryConfig:
+  DefaultRetry:
+    max_attempts: 3
+    base_delay: 1.0
+    max_delay: 32.0
+    jitter: true
+    timeout: 600.0
+    error_threshold: 1000
+    error_window: 5
+  ChainListener:
+    max_attempts: 5
+    base_delay: 2.0
+    max_delay: 45.0
+    timeout: 0
+  MessageBroadcaster:
+    max_attempts: 3
+    base_delay: 1.0
+    max_delay: 30.0
+    timeout: 30.0
+    error_threshold: 10000
+    error_window: 5
