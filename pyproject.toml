@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "injective-trader"
+version = "0.6.2"
+description = "A comprehensive SDK for building trading strategies on Injective Protocol"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Runxue Yu", email = "runxue@injectivelabs.org"},
+    {name = "Peiyun Jin", email = "peiyun@injectivelabs.org"}
+]
+maintainers = [
+    {name = "Runxue Yu", email = "runxue@injectivelabs.org"},
+    {name = "Peiyun Jin", email = "peiyun@injectivelabs.org"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+keywords = ["injective", "trading", "defi", "blockchain", "cryptocurrency"]
+requires-python = ">=3.9"
+dependencies = [
+    "injective-py==1.9.0",
+    "asyncio-mqtt>=0.16.1",
+    "grpcio>=1.54.0",
+    "grpcio-tools>=1.54.0",
+    "protobuf>=4.23.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
+    "tabulate>=0.9.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "redis>=4.5.0",
+    "valkey>=5.0.0",
+    "requests>=2.31.0",
+    "urllib3>=2.0.0",
+    "python-dateutil>=2.8.0",
+    "cryptography>=41.0.0",
+    "websockets>=11.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.4.0",
+    "pre-commit>=3.0.0",
+]
+docs = [
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=1.3.0",
+    "myst-parser>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/InjectiveLabs/injective-trader"
+Documentation = "https://www.notion.so/injective/Trading-Framework-Hub-1b97a004ab7580f0b8aaf94839725e19"
+Repository = "https://github.com/InjectiveLabs/injective-trader"
+"Bug Tracker" = "https://github.com/InjectiveLabs/injective-trader/issues"
+
+[project.scripts]
+injective-trader = "injective_trader.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["injective_trader*"]
+
+[tool.setuptools.package-data]
+injective_trader = ["py.typed", "*.yaml", "*.json"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
